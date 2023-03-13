@@ -26,15 +26,15 @@ To execute the program, follow the steps below:
 
 1. Compile the game by running the following command:
 ```bash
-make
+$ make
 ```
 2. Finally, execute the program using the following command: 
 ```bash
-./so_long <./path_to_map/map.ber>
+$ ./so_long <./path_to_map/map.ber>
 ```
 OR alternatively, you can use the following command to compile and run the game in one step:
 ```bash
-make open
+$ make open
 ```
 
 ## Resources
