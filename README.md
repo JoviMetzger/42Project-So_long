@@ -1,4 +1,4 @@
-![video](https://user-images.githubusercontent.com/117259075/225296085-926e824c-0ee7-4b75-be0e-2a59e537ad83.gif)
+https://user-images.githubusercontent.com/117259075/225296163-7abf8e26-86f0-417e-b609-1495aa7c14ec.mp4
 
 # 🎮 so_long
 
