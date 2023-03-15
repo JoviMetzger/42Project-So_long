@@ -1,4 +1,6 @@
-![so_long](/graphics/textures/video.mov)
+![so_long](https://user-images.githubusercontent.com/117259075/225291640-2e01fca3-2295-4782-86dc-c555307fa77c.mov)
+
+
 # 🎮 so_long
 
 This repository contains a 2D game called "so_long" that was created as a basic computer graphics project. The game helps to improve skills in window management, event handling, colors, textures, and more using the MiniLibX library. 
