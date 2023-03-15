@@ -1,5 +1,4 @@
-https://user-images.githubusercontent.com/117259075/225291640-2e01fca3-2295-4782-86dc-c555307fa77c.mov
-
+https://user-images.githubusercontent.com/117259075/225295913-e85a2b6a-98aa-45a1-8a59-a2d7b5d0a2f7.mov
 
 # 🎮 so_long
 
