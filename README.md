@@ -1,4 +1,4 @@
-!(https://user-images.githubusercontent.com/117259075/225291640-2e01fca3-2295-4782-86dc-c555307fa77c.mov)
+https://user-images.githubusercontent.com/117259075/225291640-2e01fca3-2295-4782-86dc-c555307fa77c.mov
 
 
 # 🎮 so_long
