@@ -2,7 +2,7 @@
 
 # 🐝 so_long
 
-This repository contains a 2D game called "so_long" that was created as a basic computer graphics project. The game helps to improve skills in window management, event handling, colors, textures, and more using the MiniLibX library. 
+This repository contains a 2D game called "so_long" that was created as a basic computer graphics project. The game helps to improve skills in window management, event handling, colors, textures, and more using the MLX42 library. 
 
 ## About
 
@@ -41,5 +41,5 @@ $ make open
 
 ## Resources
 
-- [MiniLibX documentation](https://github.com/codam-coding-college/MLX42)
+- [MLX42 documentation](https://github.com/codam-coding-college/MLX42)
 - [Project subject](https://cdn.intra.42.fr/pdf/pdf/68774/en.subject.pdf)
