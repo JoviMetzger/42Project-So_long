@@ -1,6 +1,6 @@
 ![video](https://user-images.githubusercontent.com/117259075/225296245-15ebcb7c-124c-420e-92be-108f410600cf.gif)
 
-# 🐝 so_long
+# 🐝 So_long
 
 This repository contains a 2D game called "so_long" that was created as a basic computer graphics project. The game helps to improve skills in window management, event handling, colors, textures, and more using the MLX42 library. 
 
