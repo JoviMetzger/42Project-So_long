@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/15 03:25:22 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/02/14 11:42:28 by jmetzger      ########   odam.nl         */
+/*   Updated: 2024/04/13 15:36:49 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	size_window(t_game *game)
 
 	game->map_width = ft_strlen(game->map[0]) * PIXELS;
 	i = 0;
-	while (game->map[i] != '\0')
+	while (game->map[i] != (void *)0)
 		i++;
 	game->map_height = i * PIXELS;
 }

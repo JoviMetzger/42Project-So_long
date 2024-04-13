@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/15 02:33:00 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/02/12 12:50:55 by jmetzger      ########   odam.nl         */
+/*   Updated: 2024/04/13 15:37:17 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	map_rectangle(char **map)
 	i = 0;
 	if (!map)
 		exit (0);
-	while (map[i] != '\0')
+	while (map[i] != (void *)0)
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
 		{
@@ -40,7 +40,7 @@ static void	check_char(char **map)
 	y = 0;
 	if (!map)
 		exit(0);
-	while (map[y] != '\0')
+	while (map[y] != (void *)0)
 	{
 		x = 0;
 		while (map[y][x])
@@ -65,7 +65,7 @@ static int	amount_of_char(t_game *game, char **map)
 	int	y;
 
 	y = -1;
-	while (map[++y] != '\0')
+	while (map[++y] != (void *)0)
 	{
 		x = -1;
 		while (map[y][++x])

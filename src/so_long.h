@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/20 12:18:35 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/02/15 11:24:13 by jmetzger      ########   odam.nl         */
+/*   Updated: 2024/04/13 15:32:52 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libraries/libft/libft.h"
-# include "../libraries/minilibx42/include/MLX42/MLX42.h"
+# include "../libraries/mlx42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

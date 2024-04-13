@@ -1,81 +1,81 @@
-NAME 			= so_long
+NAME			= so_long
 MAP				= ./graphics/maps/map3.ber
 
-# COMPILATION FLAGS
-CC 				= gcc
-CFLAGS 			= -Wall -Werror -Wextra -g #-fsanitize=address
-MLXFLAGS		= -I include -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
+# Compiler and flags
+CC				= cc
+CFLAGS			= -Wall -Wextra
+CFLAGS			+= -Werror
+CFLAGS			+= -g -fsanitize=address
 
-# LIBRARIES
+# Libraries
 LIBFT_PATH		= ./libraries/libft
-LIBFT 			= $(LIBFT_PATH)/libft.a
+LIBFT			= $(LIBFT_PATH)/libft.a
 
-MINILIBX_PATH	= ./libraries/minilibx42
-MINILIBX		= $(MINILIBX_PATH)/libmlx42.a
+MLX42_HEADER	= -I include -lglfw -I $(MLX42_PATH)/include/MLX42/
+MLX42_PATH		= ./libraries/mlx42
+MLX42			= $(MLX42_PATH)/build/libmlx42.a
 
-SO_LONG_PATH	= ./src
-SO_LONG			= $(SO_LONG_PATH)/so_long.a
+# Source files
+SRCS			= ./src/so_long.c \
+					./src/make_window.c \
+					./src/render_map.c \
+					./src/check_map_valid.c \
+					./src/keyBoard_hooks.c \
+					./src/utils.c
 
-# TEMPORARY FIX DO NOT USE
-SRC				:= ./src/so_long.c ./src/make_window.c ./src/render_map.c ./src/check_map_valid.c ./src/keyBoard_hooks.c ./src/utils.c
-OBJ				:= $(SRC:.c=.o)
+SRC_DIR			= src
+OBJ_PATH		= obj
+OBJ				= $(addprefix $(OBJ_PATH)/, $(notdir $(SRCS:.c=.o)))
 
-# Colours
-BOLD	:= \033[1m
-BLACK	:= \033[30;1m
-RED	:= \033[31;1m
-GREEN	:= \033[32;1m
-YELLOW	:= \033[33;1m
-BLUE	:= \033[34;1m
-MAGENTA	:= \033[35;1m
-CYAN	:= \033[36;1m
-WHITE	:= \033[37;1m
-RESET	:= \033[0m
+# Colors
+PINK			= \033[35m
+BLUE			= \033[34;1m
+GREEN			= \033[32;1m
+CORAL			= \033[38;2;255;127;80m
+BOLD			= \033[1m
+ITALIC			= \033[3m
+UNDER			= \033[4m
+RESET			= \033[0m
 
-all: 			$(NAME)
+# Rule for compiling object files
+$(OBJ_PATH)/%.o: $(SRC_DIR)/%.c
+			@mkdir -p $(OBJ_PATH)
+			@$(CC) $(CFLAGS) -c -o $@ $<
 
-# MAKE LIBFT & MINILIBX AND CP TO NAME
-$(NAME): 		$(LIBFT) $(MINILIBX) $(SO_LONG)
-	@$(CC) $(CFLAGS) -o $(NAME) $(LIBFT) $(SO_LONG) $(MINILIBX) $(MLXFLAGS)
-	@echo "$(WHITE)$(BOLD)Done Compiling Program!$(RESET)"
+# Targets
+all:	$(NAME)
+
+$(NAME):	$(LIBFT) $(MLX42) $(OBJ)
+			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX42) $(MLX42_HEADER) -lm -o $(NAME)
+			@echo "$(CORAL) $(UNDER) $(BOLD) $(ITALIC)   ✨Compilation Done✨      $(RESET)"
 
 $(LIBFT):
-	@echo "$(YELLOW)$(BOLD)Compiling Libft...$(RESET)"
-	@$(MAKE) -C $(LIBFT_PATH)
-	@echo "$(GREEN)$(BOLD)Done$(RESET)"
+		@$(MAKE) -C $(LIBFT_PATH)
+		@echo "$(BLUE)$(BOLD) --- Compiling Libft Done --- $(RESET)"
 
-$(MINILIBX):
-	@echo "$(YELLOW)$(BOLD)Compiling Minilibx...$(RESET)"
-	@$(MAKE) -C $(MINILIBX_PATH)
-	@echo "$(GREEN)$(BOLD)Done$(RESET)"
-
-	@echo "$(YELLOW)$(BOLD)Compiling So_long...$(RESET)"
-$(SO_LONG): $(SRC) $(OBJ)
-	@$(MAKE) -C $(SO_LONG_PATH)
-	@echo "$(GREEN)$(BOLD)Done$(RESET)"
+$(MLX42):
+		@cd $(MLX42_PATH) && cmake -B build && cmake --build build -j4
+		@echo "$(BLUE)$(BOLD) --- Compiling Minilibx Done --- $(RESET)"
 
 # Executest the program
 open: $(NAME)
-	@echo "$(MAGENTA)$(BOLD)Opening Window...$(RESET)"
-	@./$(NAME) $(MAP)
-	@echo "$(BLACK)$(BOLD)Window Closed$(RESET)"
+		@echo "$(PINK)$(BOLD) Opening Window... $(RESET)"
+		@./$(NAME) $(MAP)
+		@echo "$(PINK)$(BOLD) Window Closed $(RESET)"
 
-# CLEAN
+# Clean
 clean:
-	@$(MAKE) -C $(LIBFT_PATH) clean
-	@$(MAKE) -C $(MINILIBX_PATH) clean
-	@$(MAKE) -C $(SO_LONG_PATH) clean
-	@rm -f $(OBJ_PATH)
-	@echo "$(RED)Cleaning Done$(RESET)"
+		@$(MAKE) clean -C $(LIBFT_PATH)
+		@rm -rf $(MLX42_PATH)/build
+		@rm -rf $(OBJ_PATH)
+		@echo "$(GREEN) $(ITALIC) ✅ Cleaned object files ✅$(RESET)"
 
-fclean:
-	@$(MAKE) -C $(MINILIBX_PATH) fclean
-	@$(MAKE) -C $(LIBFT_PATH) fclean
-	@$(MAKE) -C $(SO_LONG_PATH) fclean
-	@rm -f $(NAME)
-	@echo "$(RED)fcleaning Done$(RESET)"
+fclean: clean
+		@$(MAKE) fclean -C $(LIBFT_PATH)
+		@rm -rf $(OBJ_PATH)
+		@rm -rf $(NAME)
+		@echo "$(GREEN) $(ITALIC)   ✅ Cleaned executer ✅$(RESET)"
 
-re: 			fclean all
+re: fclean all
 
-.PHONY: 		all clean fclean re open
-# .DEFAULT_GOAL:= open
+.PHONY: all clean fclean re open
