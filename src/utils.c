@@ -72,7 +72,7 @@ void	check_collect(t_game *game)
 {
 	if (game->count_c == 0)
 	{
-		write(1, "Congratilations! You win!\n", 26);
+		write(1, "Congratulations! You win!\n", 26);
 		ft_free(game->map);
 		exit (EXIT_SUCCESS);
 	}
