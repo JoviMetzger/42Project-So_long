@@ -42,4 +42,3 @@ $ make open
 ## Resources
 
 - [MLX42 documentation](https://github.com/codam-coding-college/MLX42)
-- [Project subject](https://cdn.intra.42.fr/pdf/pdf/68774/en.subject.pdf)
